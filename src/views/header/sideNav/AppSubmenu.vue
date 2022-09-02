@@ -77,6 +77,7 @@
   </ul>
 </template>
 <script>
+import { ref, getCurrentInstance } from "vue";
 export default {
   name: "appsubmenu",
   props: {
@@ -86,18 +87,15 @@ export default {
       default: false,
     },
   },
-  data() {
-    return {
-      activeIndex: null,
-    };
-  },
-  methods: {
-    onMenuItemClick(event, item, index) {
+  setup() {
+    const activeIndex = ref(null);
+    const { emit } = getCurrentInstance();
+
+    const onMenuItemClick = (event, item, index) => {
       if (item.disabled) {
         event.preventDefault();
         return;
       }
-
       if (!item.to && !item.url) {
         event.preventDefault();
       }
@@ -107,18 +105,25 @@ export default {
         item.command({ originalEvent: event, item: item });
       }
 
-      this.activeIndex = index === this.activeIndex ? null : index;
+      activeIndex.value = index === activeIndex.value ? null : index;
 
-      this.$emit("menuitem-click", {
+      emit("menuitem-click", {
         originalEvent: event,
         item: item,
       });
-    },
-    visible(item) {
+    };
+
+    const visible = (item) => {
       return typeof item.visible === "function"
-        ? item.visible()
+        ? item.visible
         : item.visible !== false;
-    },
+    };
+
+    return {
+      activeIndex,
+      onMenuItemClick,
+      visible,
+    };
   },
 };
 </script>
