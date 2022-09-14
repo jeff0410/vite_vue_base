@@ -24,12 +24,12 @@ npm run serve
 ```
 ## Stack
 
--   [Vue 3.2.25](https://v3.vuejs.org/)
--   [Vuex 4.0](https://vuex.vuejs.org)
--   [Router](https://router.vuejs.org/)
--   [Vite 2.0](https://vitejs.dev/)
--   [Primevue 3.10.0](https://primefaces.org/primevue/#/)
--   [primeflex 3.1.2](https://www.primefaces.org/primeflex/)
+-   [Vue 3.2.27](https://v3.vuejs.org/)
+-   [Vuex 4.0.2](https://vuex.vuejs.org)
+-   [Router 4.1.5](https://router.vuejs.org/)
+-   [Vite 3.0.7](https://vitejs.dev/)
+-   [Primevue 3.16.2](https://primefaces.org/primevue/#/)
+-   [primeflex 3.2.1](https://www.primefaces.org/primeflex/)
 -   eslint
 -   prettier
 
@@ -41,11 +41,8 @@ npm run serve
 │  ├─common                       - 프로젝트 공통
 │  │ └─contants.js                - 상수 파일
 │  ├─components                   - 공통 사용 컴포넌트
-│  │  ├─copy                      - 클립보드 복사 컴포넌트
-│  │  ├─input                     - input태그 컴포넌트
-│  │  ├─popup                     - 팝업 컴포넌트
-│  │  └─table                     - 테이블 컴포넌트
 │  ├─router                       - 화면이동 파일
+│  ├─service                      - service script 파일
 │  ├─store                        - vuex 모듈
 │  │  └─modules
 │  ├─views                        - 웹 화면
@@ -53,10 +50,12 @@ npm run serve
 │  │    ├─footer                  - 화면 하단
 │  │    ├─header                  - 화면 상단
 │  │    │  └─sideNav              - 화면 메뉴트리
-│  │    ├─main                    - 메인화면
-│  │    └─themes                  - 테마변경
+│  │    └─themes                  - 테마
 │  ├─App.vue                      - 메인 vue
-│  ├─index.css                    - tailwindcss
+│  ├─App.scss                     - 메인 css
+│  ├─AppCodeHighlight.js          - 
+│  ├─AppEventBus.js               - 
+│  ├─BlockViewer.vue              - 
 │  └─main.js                      - 메인 랜더
 │
 ├─ .env.development               - 개발 환경변수

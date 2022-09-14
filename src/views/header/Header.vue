@@ -7,13 +7,10 @@
 <script>
 import SideNav from "@/views/header/sideNav/SideNav.vue";
 import AppTopbar from "@/views/header/sideNav/AppTopbar.vue";
-// import { activeClassName, getMenuList } from "@/common/sideNavService";
-import { activeClassName } from "@/common/sideNavService";
-// import { menuOnClick } from "@/common/menuCheckService.js";
-// import { ref } from "@vue/reactivity";
+import { activeClassName } from "@/service/sideNavService";
 
 //tmp
-import menuList from '@/tmp/menuList.json'
+import menuList from '@/tmp/menuList.js'
 
 export default {
   components: {

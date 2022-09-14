@@ -3,7 +3,7 @@
     <Header />
 
     <div class="layout-main-container">
-      <Main />
+      <router-view></router-view>
       <Footer />
     </div>
 
@@ -21,15 +21,13 @@
 import AppConfig from "@/views/themes/AppConfig.vue";
 import Header from "@/views/header/Header.vue";
 import Footer from "@/views/footer/Footer.vue";
-import Main from "@/views/main/Main.vue";
-import { activeClassName } from "@/common/sideNavService";
-import { computed } from '@vue/runtime-core';
+import { activeClassName } from "@/service/sideNavService";
+import { computed } from "@vue/runtime-core";
 export default {
   components: {
     Header,
     AppConfig,
     Footer,
-    Main,
   },
   setup() {
     const onLayoutChange = (layoutMode) => {
@@ -66,7 +64,7 @@ export default {
           "layout-mobile-sidebar-active": mobileMenuActive.value,
           "p-input-filled": false,
           "p-ripple-disabled": false,
-          // "layout-theme-light": false,
+          "layout-theme-light": false,
         },
       ];
     });

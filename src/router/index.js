@@ -58,6 +58,11 @@ const routes = [
         component: () => import('@/components/OverlayDemo.vue')
     },
     {
+        path: '/media',
+        name: 'media',
+        component: () => import('@/components/MediaDemo.vue')
+    },
+    {
         path: '/menu',
         component: () => import('@/components/MenuDemo.vue'),
         children: [
@@ -133,6 +138,36 @@ const routes = [
         path: '/icons',
         name: 'icons',
         component: () => import('@/components/IconsDemo.vue')
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('@/pages/Login.vue')
+    },
+    {
+        path: '/landing',
+        name: 'landing',
+        component: () => import('@/pages/LandingDemo.vue')
+    },
+    {
+        path: '/error',
+        name: 'error',
+        component: () => import('@/pages/Error.vue')
+    },
+    {
+        path: '/notfound',
+        name: 'notfound',
+        component: () => import('@/pages/NotFound.vue')
+    },
+    {
+        path: '/access',
+        name: 'access',
+        component: () => import('@/pages/Access.vue')
+    },
+    {
+        path: '/chartTest',
+        name: 'ChartTest',
+        component: () => import('@/views/test/ChartTest.vue')
     }
 ];
 

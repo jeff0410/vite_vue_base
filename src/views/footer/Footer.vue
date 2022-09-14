@@ -2,7 +2,7 @@
   <div class="layout-footer">
     <span class="font-medium ml-2"
       ><address style="color: #757575">
-        Copyright © 2022 All rights reserved. KORFINHOLDINGS CO., LTD
+        Copyright © 2022 All rights reserved. MEDIBLOC CO., LTD
       </address></span
     >
   </div>

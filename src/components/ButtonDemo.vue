@@ -59,12 +59,22 @@
 				<SplitButton label="Save" icon="pi pi-check" :model="items" class="p-button-danger mr-2 mb-2"></SplitButton>
 			</div>
 
+			<div class="card">
+				<h5>Templating</h5>
+                <Button type="button" class="mr-2 mb-2 px-3">
+                    <img alt="logo" src="images/primevue-logo.svg" style="width: 1.5rem"/>
+                </Button>
+                <Button type="button" class="p-button-outlined p-button-success mr-2 mb-2">
+                    <img alt="logo" src="images/primevue-logo.svg" style="width: 1.5rem" />
+                    <span class="ml-2 text-bold">PrimeVue</span>
+                </Button>
+			</div>
 		</div>
 
 		<div class="col-12 md:col-6">
 			<div class="card">
 				<h5>Icons</h5>
-				<Button icon="pi pi-star" class="mr-2 mb-2"></Button>
+				<Button icon="pi pi-star-fill" class="mr-2 mb-2"></Button>
 				<Button label="Bookmark" icon="pi pi-bookmark" class="mr-2 mb-2"></Button>
 				<Button label="Bookmark" icon="pi pi-bookmark" iconPos="right" class="mr-2 mb-2"></Button>
 			</div>
@@ -91,7 +101,7 @@
 
 			<div class="card">
 				<h5>Rounded Icons</h5>
-				<Button icon="pi pi-star" class="p-button-rounded mr-2 mb-2" />
+				<Button icon="pi pi-star-fill" class="p-button-rounded mr-2 mb-2" />
 				<Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary mr-2 mb-2" />
 				<Button icon="pi pi-check" class="p-button-rounded p-button-success mr-2 mb-2" />
 				<Button icon="pi pi-search" class="p-button-rounded p-button-info mr-2 mb-2" />

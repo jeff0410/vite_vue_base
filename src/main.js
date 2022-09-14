@@ -1,3 +1,14 @@
+
+console.log(`
+%c     ██╗███████╗███████╗███████╗██╗  ██╗██╗███╗   ███╗
+%c     ██║██╔════╝██╔════╝██╔════╝██║ ██╔╝██║████╗ ████║
+%c     ██║█████╗  █████╗  █████╗  █████╔╝ ██║██╔████╔██║
+%c██   ██║██╔══╝  ██╔══╝  ██╔══╝  ██╔═██╗ ██║██║╚██╔╝██║
+%c╚█████╔╝███████╗██║     ██║     ██║  ██╗██║██║ ╚═╝ ██║
+%c ╚════╝ ╚══════╝╚═╝     ╚═╝     ╚═╝  ╚═╝╚═╝╚═╝     ╚═╝
+`, "color:#22577A", "color:#38A3A5", "color:#57CC99", "color:#80ED99", "color:#99FFED", "color:#FFFFFF")
+
+
 import 'primevue/resources/primevue.min.css';
 import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
@@ -5,10 +16,11 @@ import 'prismjs/themes/prism-coy.css';
 import './assets/styles/layout.scss';
 import './assets/demo/flags/flags.css';
 
-import { createApp, reactive } from 'vue';
-import router from './router';
+import { createApp, reactive} from 'vue';
 import App from './App.vue';
-import store from './store'
+// import AppWrapper from '@/views/wrapper/AppWrapper.vue';
+import router from './router';
+import store from './store';
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
@@ -63,6 +75,7 @@ import PanelMenu from 'primevue/panelmenu';
 import Password from 'primevue/password';
 import PickList from 'primevue/picklist';
 import ProgressBar from 'primevue/progressbar';
+import Timeline from 'primevue/timeline';
 import Rating from 'primevue/rating';
 import RadioButton from 'primevue/radiobutton';
 import Ripple from 'primevue/ripple';
@@ -81,7 +94,6 @@ import TabMenu from 'primevue/tabmenu';
 import Tag from 'primevue/tag';
 import TieredMenu from 'primevue/tieredmenu';
 import Textarea from 'primevue/textarea';
-import Timeline from 'primevue/timeline';
 import Toast from 'primevue/toast';
 import ToastService from 'primevue/toastservice';
 import Toolbar from 'primevue/toolbar';
@@ -99,54 +111,34 @@ import ColumnGroup from 'primevue/columngroup'
 import CodeHighlight from './AppCodeHighlight';
 import BlockViewer from './BlockViewer.vue';
 
-console.log(`
-%c     ██╗███████╗███████╗███████╗██╗  ██╗██╗███╗   ███╗
-%c     ██║██╔════╝██╔════╝██╔════╝██║ ██╔╝██║████╗ ████║
-%c     ██║█████╗  █████╗  █████╗  █████╔╝ ██║██╔████╔██║
-%c██   ██║██╔══╝  ██╔══╝  ██╔══╝  ██╔═██╗ ██║██║╚██╔╝██║
-%c╚█████╔╝███████╗██║     ██║     ██║  ██╗██║██║ ╚═╝ ██║
-%c ╚════╝ ╚══════╝╚═╝     ╚═╝     ╚═╝  ╚═╝╚═╝╚═╝     ╚═╝
-`, "color:#22577A", "color:#38A3A5", "color:#57CC99", "color:#80ED99", "color:#99FFED", "color:#FFFFFF")
-
+// (async () => {
+    router.beforeEach((to, from, next) => {
+        console.log(to.name);
+        window.scrollTo(0,0);
+        next();
+    });
+// });
 
 const app = createApp(App);
 
-(async () => {
-    // console.log('1');
-    //새로고침 할때 로컬스토리지 값으로 데이터 처리 하는 부분
-   
-    const nowTheme = window.localStorage.getItem('theme');
-    const dark = window.localStorage.getItem('dark');
-    if (nowTheme) {
-        let themeElement = document.getElementById("dak-link");
-        themeElement.setAttribute("href", nowTheme);
-        if (dark) {
-            app.config.globalProperties.$appState = reactive({ theme: 'md-dark-indigo', darkTheme: true });
-        }
-    }
-    // const el = document.getElementById("app");
+app.config.globalProperties.$appState = reactive({ theme: 'lara-light-indigo', darkTheme: false });
 
-    router.beforeEach((to, from, next) => {
-        console.log(to.name);
-        
-        next();
-    });
-})();
 
-app.config.globalProperties.$appState = reactive({ theme: 'md-dark-indigo', darkTheme: true });
-
+//use
 app.use(PrimeVue, { ripple: true, inputStyle: 'outlined' });
 app.use(ConfirmationService);
 app.use(ToastService);
-app.use(router);
 app.use(store);
+app.use(router);
 
+//directive
 app.directive('tooltip', Tooltip);
 app.directive('ripple', Ripple);
 app.directive('code', CodeHighlight);
 app.directive('badge', BadgeDirective);
 app.directive('styleclass', StyleClass);
 
+//component
 app.component('Accordion', Accordion);
 app.component('AccordionTab', AccordionTab);
 app.component('AutoComplete', AutoComplete);
@@ -226,7 +218,7 @@ app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('ColumnGroup', ColumnGroup);
 app.component('Row', Row);
-
 app.component('BlockViewer', BlockViewer);
 
-app.mount('#app');
+
+app.mount("#app");

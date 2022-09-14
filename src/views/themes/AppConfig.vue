@@ -85,7 +85,7 @@ export default {
     },
   },
   setup() {
-    const { emit } = getCurrentInstance();
+    const { emit, proxy } = getCurrentInstance();
     const containerClass = computed(() => [
       "layout-config",
       { "layout-config-active": active.value },
@@ -141,6 +141,7 @@ export default {
 
     const isOutsideClicked = (event) => {
       let layConfig = document.getElementById("layout-config");
+      //this.$el.isSamNode() //this.$el.contains() 아래와 같이 변경
       return !(
         layConfig.isSameNode(event.target) || layConfig.contains(event.target)
       );
@@ -161,12 +162,13 @@ export default {
     };
 
     const changeTheme = (event, theme, dark) => {
-      const newValue = "/themes/" + theme + "/theme.css";
+      const newValue = "/src/assets/themes/" + theme + "/theme.css";
       let themeElement = document.getElementById("dak-link");
       window.localStorage.setItem("theme", newValue);
       window.localStorage.setItem("dark", dark);
       themeElement.setAttribute("href", newValue);
-      this.$appState.darkTheme = dark;
+      proxy.$appState.darkTheme = dark;
+      proxy.$appState.theme = theme;
     };
 
     return {
